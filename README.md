@@ -9,4 +9,4 @@ Created Two Projects
 Created a TJX Database with three tables (Products, Country, Currency) and a stored procedure (GetProductsWithCountryCode)
 
 
-Note: Updated the solution properties to run the multiple startup projects to test the code
+Note: Updated the solution properties to run the multiple startup projects to test the code, request to update the database connection string for the TJX_API at the appsettings.json
