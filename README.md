@@ -2,8 +2,9 @@
 
 
 Created Two Projects
-	1. TJX_API - An ASP.NET Core RESTful api which connects to Database and pull off the results in a JSON output
-	2. TJX_WEB_UI - An ASP.NET MVC application to call the API and display the JSON response in the UI
+
+	1. **TJX_API** - An ASP.NET Core RESTful api which connects to Database and pull off the results in a JSON output
+	2. **TJX_WEB_UI** - An ASP.NET MVC application to call the API and display the JSON response in the UI
 	
 Created a TJX Database with three tables (Products, Country, Currency) and a stored procedure (GetProductsWithCountryCode)
 
