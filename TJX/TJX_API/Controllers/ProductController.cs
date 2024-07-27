@@ -16,19 +16,21 @@ namespace TJX_API.Controllers
     {        
         private readonly ILogger<ProductController> _logger;
         private readonly IConfiguration _configuration;
+        private IData db;   
 
-
-        public ProductController(ILogger<ProductController> logger, IConfiguration configuration)
+        public ProductController(ILogger<ProductController> logger, IConfiguration configuration, IData db2)
         {
             _logger = logger;
             _configuration = configuration;
+            this.db = db2;
         }
 
         [HttpGet]
         public List<Product> GetProducts(string CountryCode="USA")
         {
-                        
-            Data Db = new Data(_configuration.GetConnectionString("TJX"));
+
+            //Data Db = new Data(_configuration.GetConnectionString("TJX"));
+            Data Db = new Data();
             return Db.GetProducts(CountryCode);
             
         }

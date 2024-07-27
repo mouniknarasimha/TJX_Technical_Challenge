@@ -10,53 +10,63 @@ using TJX_API.Model;
 
 namespace TJX_API.DataAccess
 {
-    public class Data
+    public class Data : IData
     {
         private string ConnString = null;
         
         
-        public Data(string ConnectionString)
-        {            
-            ConnString = ConnectionString;
-        }
+        //public Data(string ConnectionString)
+        //{            
+        //    ConnString = ConnectionString;
+        //}
 
         public List<Product> GetProducts(string CountryCode = "USA")
         {
             List<Product> products = new List<Product>();
-            try
+            //try
+            //{
+            //    using (SqlConnection connection = new SqlConnection(ConnString))
+            //    {
+            //        connection.Open();
+
+            //        using (SqlCommand command = new SqlCommand("GetProductsWithCountryCode", connection))
+            //        {
+            //            command.CommandType = System.Data.CommandType.StoredProcedure;
+            //            command.Parameters.Add(new SqlParameter("@CountryCode", SqlDbType.NVarChar) { Value = CountryCode });
+            //            using (SqlDataReader reader = command.ExecuteReader())
+            //            {
+
+            //                while (reader.Read())
+            //                {
+            //                    Product employee = new Product
+            //                    {
+            //                        Id = (int)reader["Id"],
+            //                        Name = reader["Name"].ToString(),
+            //                        Description = reader["Description"].ToString(),
+            //                        Price = (Decimal)reader["ConvertedPrice"]
+            //                    };
+
+            //                    products.Add(employee);
+            //                }
+            //            }
+
+            //        }
+            //    }
+            //}
+            //catch(Exception ex)
+            //{
+            //    products = null;
+            //    throw ex;
+            //}
+
+            for(int i =0; i<3; i++)
             {
-                using (SqlConnection connection = new SqlConnection(ConnString))
-                {
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand("GetProductsWithCountryCode", connection))
-                    {
-                        command.CommandType = System.Data.CommandType.StoredProcedure;
-                        command.Parameters.Add(new SqlParameter("@CountryCode", SqlDbType.NVarChar) { Value = CountryCode });
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-
-                            while (reader.Read())
-                            {
-                                Product employee = new Product
-                                {
-                                    Id = (int)reader["Id"],
-                                    Name = reader["Name"].ToString(),
-                                    Description = reader["Description"].ToString(),
-                                    Price = (Decimal)reader["ConvertedPrice"]
-                                };
-
-                                products.Add(employee);
-                            }
-                        }
-
-                    }
-                }
-            }
-            catch(Exception ex)
-            {
-                products = null;
-                throw ex;
+                Product product = new Product();
+                product.Id = i;
+                product.Name = i.ToString();
+                product.Description = i.ToString();
+                product.Price = i;
+                products.Add(product);
             }
 
              return products;
